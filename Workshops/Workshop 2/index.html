@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+       <script type="text/javascript" src="service.js"></script>
+    <style>
+    
+		.assignments{
+			width:300px;
+			float:left;
+		}
+		.grade{
+			width:300px;
+			float:right;
+		}
+		.left{
+			width:200px;
+			float:left;
+		}
+    	.right{
+    		width:100px;
+			float:right;
+    	}
+    </style>
+  </head>
+ <body ng-app="MyApp" ng-controller="MyController as ctrl">
+	<h1>Student Grade Calculator</h1>
+		<p>Name: <input type="text" ng-model="ctrl.name"></p>
+		<div>Assignment Name: <input type="text" ng-model="ctrl.assignment"><br><br>
+			<!--student.assignments.name-->
+		Assignment Score: <input type="number" ng-model="ctrl.score"> /100 <br><br>
+
+		<button ng-click="ctrl.student.addAssignment(ctrl.assignment, ctrl.score)">Add</button>
+		</div>
+		<br>
+		<div class="all">
+			<div class="assignments">
+				<div class="left">
+					<span>Assignment Name</span>
+					<ol>
+							<li ng-repeat="assignment in ctrl.student.assignments track by $index">
+								<div ng-bind="assignment.name"></div>
+							</li>
+					</ol>
+				</div>
+
+				<div class="right">
+					<div>Score</div>
+					<br>
+					<div ng-repeat="assignment in ctrl.student.assignments track by $index">
+						<span ng-bind="assignment.score"></span>
+					<div>
+				</div>
+			</div>
+			<br><br>
+			<div class="grade">
+					<div>Average: <span ng-bind="ctrl.average"></span></div>
+					<div>Grade: <span ng-bind="ctrl.letterGrade"></span></div>
+					<div>Passing: <span ng-bind="ctrl.passing"></span></div>		
+			</div>
+		</div>
+ </body>
+ </html>   

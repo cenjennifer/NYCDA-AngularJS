@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="service.js"></script>
+    <style>
+
+    </style>
+  </head>
+ <body ng-app="MyApp" ng-controller="MyController as ctrl">
+ 	<!--<pre>
+ 		{{ ctrl.songList | json}}
+ 	</pre>-->
+	<h1>About Me:</h1>
+		<div>Name: <br><input type="text" ng-model="ctrl.name"></div>
+		<div>Age: <br><input type="number" ng-model="ctrl.age"><br><br>
+
+	<h1>Genre:</h1>	
+		<div ng-repeat="genre in ctrl.genres track by $index">
+			<input type="radio" ng-model="ctrl.selectedGenre" name="selectedGenre" ng-value="genre">
+				<span ng-bind="genre.name"></span>
+		</div>
+
+	<h1>Explicit?</h1>	
+		<div ng-repeat="explicit in ctrl.explicitAllowed track by $index">
+			<input type="radio" ng-model="ctrl.selectedExplicit" name="selectedExplicit" ng-value="explicit">
+				<span ng-bind="explicit"></span>
+		</div>	
+		<h1>Songs:</h1>
+		
+		<div>
+			<div ng-repeat="song in ctrl.songList track by $index">
+				<input type="checkbox" ng-model="ctrl.selectedSong">
+				<span ng-bind="song.name"></span>
+			</div>	
+		</div>
+		<br><br>
+		<button ng-click="ctrl.selectedSongs(ctrl.selectSongs)">Submit</button>
+		<br><br>
+ </body>
+ </html>   

@@ -7,7 +7,7 @@ angular.module('MyApp')
 		this.assignments = [];
 	}
 
-	Student.prototype.addAssignment = function(name, score) {
+	Student.prototype.addAssignments = function(name, score) {
 		var assignment = {
 			name: name,
 			score: score
@@ -21,16 +21,12 @@ angular.module('MyApp')
 	.service('MyGradeService', function(Student){
 		var self = this;
 
-		/*for (var i = 0; i < student.assignments.length; i++) {
-			self.arrayOfGrades.push(student.assignments.assignment[i].score);
-		}*/
-
-		self.calculateAverage = function (arrayOfScores){
+		self.calculateAverage = function (arrayOfAssignment) {
 			var count = 0;
 			var average = 0;
-			for (var i = 0; i < arrayOfScores.length; i++) {
-				count += arrayOfScores[i];
-				average = count / (arrayOfScores.length);
+			for (var i = 0; i < arrayOfAssignment.length; i++) {
+				count += arrayOfAssignment[i].score;
+				average = count / (arrayOfAssignment.length);
 			}
 			return average;
 		};
@@ -59,7 +55,7 @@ angular.module('MyApp')
 		];
 
 		self.calculateGrade = function(average){
-				if (average >= LetterGrade[0].GradeFloor){
+				if (average > LetterGrade[0].GradeFloor){
 						return LetterGrade[0].Grade;
 				} else if (average >= LetterGrade[1].GradeFloor){
 						return LetterGrade[1].Grade;
@@ -67,14 +63,13 @@ angular.module('MyApp')
 						return  LetterGrade[2].Grade;
 				} else if (average >= LetterGrade[3].GradeFloor){
 						return LetterGrade[3].Grade;
-				} else if (average <= LetterGrade[4].GradeFloor){
+				} else if (average >= 0){
 						return LetterGrade[4].Grade;
 				}
 		};
 		
 		self.calculatePassing = function(gradeLetter) {
 			for (var i = 0; i < LetterGrade.length; i++) {
-				//console.log(LetterGrade.length);
 				if ((gradeLetter == "A") || (gradeLetter === "B") || (gradeLetter === "C")){
 					return "True";
 				} else {

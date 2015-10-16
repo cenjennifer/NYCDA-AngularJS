@@ -7,21 +7,16 @@ angular.module('MyApp', [])
 
 	self.student = new Student(self.name);
 
-	self.studentScores = [];
+	self.addAssignment = function () {
+		console.log(self.student);
+		self.student.addAssignments = function (name, score) {
+		console.log(self.student);
 
-	for (var i = 0; i < self.student.assignments.length; i++) {
-			self.studentScore.push(self.student.assignments[i].score);
-		}
-	console.log(self.studentScores);
-
-	/*self.addAssignment = function((ctrl.assignment, ctrl.score)) {
-		student.addAssignment(ctrl.assignment, ctrl.score)
-	};*/
-
-	//self.average = MyGradeService.calculateAverage([90, 100, 90]);
-	self.average = MyGradeService.calculateAverage(self.studentScores);
-	self.letterGrade = MyGradeService.calculateGrade(self.average);
-	self.passing = MyGradeService.calculatePassing(self.letterGrade);
+		self.average = MyGradeService.calculateAverage(self.student.assignments);
+		self.letterGrade = MyGradeService.calculateGrade(self.average);
+		self.passing = MyGradeService.calculatePassing(self.letterGrade);
+		};
+	};
 
 });
 //}]);

@@ -7,7 +7,7 @@ angular.module('MyApp')
 		this.assignments = [];
 	}
 
-	Student.prototype.addAssignments = function(name, score) {
+	Student.prototype.addAssignment = function(name, score) {
 		var assignment = {
 			name: name,
 			score: score

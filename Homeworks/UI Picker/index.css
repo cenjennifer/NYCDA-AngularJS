@@ -1,0 +1,93 @@
+body{
+		padding: 0px;
+		margin: 0px;
+	}
+	h2{
+		margin:10px;
+	}
+	input[type="radio"]{
+		margin: 0px 10px;
+	}
+	.div1{
+		width:70%;
+		background-color: #ccc;
+		padding:10px;
+		margin: 10px;
+	}
+	.div2{
+		width:70%;
+		background-color: #999;
+		padding: 10px;	
+		margin: 10px;
+	}
+	.default{
+		background-color: #ffffff;
+	}
+	.red{
+		background-color: #CC0066;
+		color:#CC6699;
+	}
+	.green{
+		background-color: #33CC66;
+		color:#336600;
+	}
+	.blue{
+		background-color: #3366FF;
+		color:#3399FF;
+	}
+	.purple{
+		background-color: #9966FF;
+		color:#990099;
+	}
+	.defaultDiv{
+		background-color: #ccc;
+	}
+	.redDiv{
+		background-color: #CC0033;
+	} 
+	.greenDiv{
+		background-color: #33CC33;
+	}
+	.blueDiv{
+		background-color: #3366CC;
+	}
+	.purpleDiv{
+		background-color: #9966CC;
+	}
+	.defaultDiv2{
+		background-color: #999;
+	}
+	.redDiv2{
+		background-color: #CC3366;
+		color:#CC6699;
+	} 
+	.greenDiv2{
+		background-color: #33FF66;
+	}
+	.blueDiv2{
+		background-color: #333399;
+	}
+	.purpleDiv2{
+		background-color: #993399;
+	}
+	.myFolders{
+		width:25%;
+		float: left;
+		overflow:hidden;
+	}
+	.addFiles{
+		width:25%;
+		overflow:hidden;
+	}
+	.folders{
+		width: 100%;
+		margin: 0 px;
+		padding: 0 px;
+	}
+	input[type="checkbox"]{
+		margin: 0 px 10 px;
+	}
+	.list{
+		margin: 0 px;
+		padding: 0 px;
+	}

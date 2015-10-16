@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>UI Theme Picker</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+			<script type="text/javascript" src="index.js"></script>
+			<link rel="stylesheet" type="text/css" href="index.css">
+		</head>
+<body ng-app="MyApp" ng-controller="MyController as ctrl" ng-class="ctrl.select.class">
+		<div>
+		<h2>Select a Theme</h2>
+		<div>
+			
+		<input type="radio" 
+				ng-model="ctrl.select" 
+				name="color" 
+				ng-value="ctrl.selectDefault" checked />None<br>
+		<input type="radio" 
+				ng-model="ctrl.select" 
+				name="color" 
+				ng-value="ctrl.selectRed" />Red<br>
+		<input type="radio" 
+				ng-model="ctrl.select" 
+				name="color" 
+				ng-value="ctrl.selectGreen" />Green<br>
+		<input type="radio" 
+				ng-model="ctrl.select" 
+				name="color" 
+				ng-value="ctrl.selectBlue" />Blue<br>
+		<input type="radio" 
+				ng-model="ctrl.select" 
+				name="color" 
+				ng-value="ctrl.selectPurple" />Purple<br>
+		<div class="div1" ng-bind = "ctrl.div1" ng-class="ctrl.select.classDiv">
+		
+		</div>
+		<div class="div2" ng-bind = "ctrl.div2" ng-class="ctrl.select.classDiv2">
+		</div>
+		</div>
+
+
+<!--end of Part 1 Div HW -->
+		<div class="folders">
+			<div class="myFolders">	
+				<h2>My Folders</h2>
+				<input type="checkbox" ng-model="ctrl.hideFiles" />Hide All
+					<ul>
+						<li ng-repeat="folder in ctrl.folders track by $index">
+							<div ng-bind="folder.name"></div>
+							<ul ng-hide="ctrl.hideFiles" ng-repeat="file in folder.filenames">
+									<li ng-bind="file"></li>
+							</ul>
+						</li>
+					</ul>
+<!--Long Way
+ 					<ul>	
+						<li>Personal</li>
+							<ul ng-hide="ctrl.hideFiles" ng-show="ctrl.isNewFilePersonal" ng-repeat="itemPersonal in ctrl.fileTypeArrayPersonal track by $index">
+								<li ng-bind="itemPersonal"></li>
+							</ul>
+						<li>Work</li>
+							<ul ng-hide="ctrl.hideFiles" ng-show="ctrl.isNewFileWork" ng-repeat="itemWork in ctrl.fileTypeArrayWork track by $index">
+								<li ng-bind="itemWork"></li>
+							</ul>
+						<li>Trip</li>
+							<ul ng-hide="ctrl.hideFiles" ng-show="ctrl.isNewFileTrip" ng-repeat="itemTrip in ctrl.fileTypeArrayTrip track by $index">
+								<li ng-bind="itemTrip"></li>
+							</ul>
+			
+					</ul> -->
+			</div>
+<!-- 			<div class="addFiles">	
+				<h2>Add Files</h2>
+				
+					<input type="text" placeholder="File Name" ng-model="ctrl.fileName"/>
+					<button ng-click="ctrl.addFile()">Add File</button><br>
+					<span ng-show="ctrl.showMessage">Add A File Name</span>
+				<br><br>
+
+				<input type="radio" ng-model="ctrl.selectFileType" name="checkFileType" value="personalFileType">Personal<br>
+				<input type="radio" ng-model="ctrl.selectFileType" name="checkFileType" value="workFileType">Work<br>
+				<input type="radio" ng-model="ctrl.selectFileType" name="checkFileType" value="tripFileType">Trip<br>
+
+				<div ng-bind="ctrl.selectFileType"></div>
+				<div ng-bind="ctrl.fileName"></div>
+			</div> -->
+<!--Object Way -->
+			<div class="addFiles">	
+				<h2>Add Files</h2>
+				
+					<input type="text" placeholder="File Name" ng-model="ctrl.fileName"/>
+					<button ng-click="ctrl.addFileToFolder(ctrl.fileName)">Add File</button><br>
+					<span ng-show="ctrl.showMessage">Add A File Name</span>
+				<br><br>
+
+
+				<div ng-repeat="folder in ctrl.folders track by $index">
+					<input type="radio" ng-model="ctrl.selectedFolder" name="selectedFolder" ng-value="folder"><span ng-bind="folder.name">
+				</div>
+
+				<div ng-bind="ctrl.selectFileType"></div>
+				<div ng-bind="ctrl.fileName"></div>
+			</div>
+		</div>	
+</body>
+</html>

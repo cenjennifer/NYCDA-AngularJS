@@ -30,13 +30,13 @@
 		<h1>Songs:</h1>
 		
 		<div>
-			<div ng-repeat="song in ctrl.songList track by $index">
-				<input type="checkbox" ng-model="ctrl.selectedSong">
+			<div ng-repeat="song in ctrl.songs track by $index">
+				<input type="checkbox" ng-model="ctrl.songs[$index].checked">
 				<span ng-bind="song.name"></span>
 			</div>	
 		</div>
 		<br><br>
-		<button ng-click="ctrl.selectedSongs(ctrl.selectSongs)">Submit</button>
+		<button ng-click="ctrl.selectedSongs(ctrl.songs[$index].checked)">Submit</button>
 		<br><br>
  </body>
  </html>   

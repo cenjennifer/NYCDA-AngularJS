@@ -16,7 +16,6 @@ angular.module('MyApp')
 
 	};
 	return Student;
-
 })
 	.service('MyGradeService', function(Student){
 		var self = this;
@@ -26,8 +25,8 @@ angular.module('MyApp')
 			var average = 0;
 			for (var i = 0; i < arrayOfAssignment.length; i++) {
 				count += arrayOfAssignment[i].score;
-				average = count / (arrayOfAssignment.length);
 			}
+			average = count / (arrayOfAssignment.length);
 			return average;
 		};
 

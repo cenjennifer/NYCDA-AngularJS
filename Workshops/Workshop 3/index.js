@@ -1,7 +1,7 @@
 angular.module('MyApp', [])
 
 
-.controller('MyController', function(Songlist){
+.controller('MyController', function(songList){
 	var self = this;
 	self.genres = [
 		{name: "Pop", songsTitles: []},
@@ -12,13 +12,13 @@ angular.module('MyApp', [])
 	self.explicitAllowed = ["Explicit", "Not Explicit"];
 
 	console.log(self.genres[0].songsTitles);
-	self.songList = Songlist;
+	self.songs = songList;
 
 
-	for (var i = 0; i < self.songList.length; i++){
+	for (var i = 0; i < self.songs.length; i++){
 		for (var j = 0; j < self.genres.length; j++){
-			if (self.songList[i].type === self.genres[j].name){
-				self.genres[j].songsTitles.push(self.songList[i].name);
+			if (self.songs[i].type === self.genres[j].name){
+				self.genres[j].songsTitles.push(self.songs[i].name);
 			}
 		}
 		

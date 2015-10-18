@@ -41,6 +41,7 @@ angular.module('MyApp', [])
 				console.log("Add File Name");
 			} else {
 				self.selectedFolder.filenames.push(filename);
+				self.showMessage = false;
 			}
 		self.fileName = undefined;
 	};

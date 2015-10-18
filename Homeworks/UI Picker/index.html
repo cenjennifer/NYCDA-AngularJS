@@ -44,11 +44,11 @@
 		<div class="folders">
 			<div class="myFolders">	
 				<h2>My Folders</h2>
-				<input type="checkbox" ng-model="ctrl.hideFiles" />Hide All
+				<input type="checkbox" ng-model="ctrl.hideFiles" />Hide All<br><br>
 					<ul>
 						<li ng-repeat="folder in ctrl.folders track by $index">
 							<div ng-bind="folder.name"></div>
-							<ul ng-hide="ctrl.hideFiles" ng-repeat="file in folder.filenames">
+							<ul ng-hide="ctrl.hideFiles" ng-repeat="file in folder.filenames track by $index">
 									<li ng-bind="file"></li>
 							</ul>
 						</li>
@@ -94,13 +94,13 @@
 					<span ng-show="ctrl.showMessage">Add A File Name</span>
 				<br><br>
 
-
 				<div ng-repeat="folder in ctrl.folders track by $index">
-					<input type="radio" ng-model="ctrl.selectedFolder" name="selectedFolder" ng-value="folder"><span ng-bind="folder.name">
+					<input type="radio" ng-model="ctrl.selectedFolder" name="selectedFolder" ng-value="folder">
+						<span ng-bind="folder.name"></span>
 				</div>
 
-				<div ng-bind="ctrl.selectFileType"></div>
-				<div ng-bind="ctrl.fileName"></div>
+				<!--<div ng-bind="ctrl.selectFileType"></div>
+				<div ng-bind="ctrl.fileName"></div>-->
 			</div>
 		</div>	
 </body>

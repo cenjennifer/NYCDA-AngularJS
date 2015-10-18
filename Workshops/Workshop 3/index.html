@@ -21,22 +21,35 @@
 			<input type="radio" ng-model="ctrl.selectedGenre" name="selectedGenre" ng-value="genre">
 				<span ng-bind="genre.name"></span>
 		</div>
-
-	<h1>Explicit?</h1>	
+				<span ng-bind="ctrl.selectedGenre"></span>
+				<span ng-bind="ctrl.selectedGenre.name"></span>
+	<!--<h1>Explicit?</h1>	
 		<div ng-repeat="explicit in ctrl.explicitAllowed track by $index">
-			<input type="radio" ng-model="ctrl.selectedExplicit" name="selectedExplicit" ng-value="explicit">
+			<input type="radio" ng-model="ctrl.selectedExplicit" ng-disabled="ctrl.underAge(ctrl.age)"
+ name="selectedExplicit" ng-value="explicit">
 				<span ng-bind="explicit"></span>
-		</div>	
+		</div>-->
+
+	<h1>Long Way Explicit?</h1>	
+		<div>
+			<input type="radio" ng-model="ctrl.selectedExplicitLong" ng-disabled="ctrl.underAge(ctrl.age)"
+ name="selectedExplicit" value="Explicit">Explicit
+ 			<input type="radio" ng-model="ctrl.selectedExplicitLong"
+ name="selectedExplicit" value="Not Explicit">Not Explicit
+		</div>
 		<h1>Songs:</h1>
 		
 		<div>
-			<div ng-repeat="song in ctrl.songs track by $index">
-				<input type="checkbox" ng-model="ctrl.songs[$index].checked">
-				<span ng-bind="song.name"></span>
-			</div>	
+		
+			<div ng-repeat="song in ctrl.songs | filter: ctrl.selectedGenre.name track by $index">
+				<input type="checkbox" ng-model="ctrl.songs[$index].checked" name="selectedSong" ng-value="song">
+					<span ng-bind="song.name"></span>
+	
+			</div>
+
 		</div>
 		<br><br>
-		<button ng-click="ctrl.selectedSongs(ctrl.songs[$index].checked)">Submit</button>
+		<button ng-click="ctrl.selectedSongs(ctrl.songs[$index].name, ctrl.selectedGenre.name, ctrl.selectedExplicitLong)">Submit</button>
 		<br><br>
  </body>
  </html>   

@@ -1,26 +1,27 @@
 angular.module('MyApp')
 
-/*.factory('Person', function() {
+.factory('Person', function() {
 
-	function Person(name) {
-		this.name = "";
+	function Person(name, age){
+		this.name = name;
+		this.age = age;
 		this.selectedSongs = [];
 	}
 
-	Person.prototype.selectedSongs = function(name, type) {
+	Person.prototype.addselectedSongs = function (name, type, explicit) {
 		var song = {
 			name: name,
-			type: type
+			type: type,
+			explicit: explicit
 		};
-		this.song.push(selectedSongs);
+		this.selectedSongs.push(song);
 
 	};
 	return Person;
+})
 
-})*/
 
-
-/*.factory('Songs', function() {
+/*.factory('Songs', function(songList) {
 
 	function Songs() {
 		this.name = "";
@@ -39,6 +40,11 @@ angular.module('MyApp')
 	return Songs;
 });*/
 
+.value ('genreArray', [
+		{name: "Pop", songsTitles: []},
+		{name: "Rock", songsTitles: []},
+		{name: "Rap", songsTitles: []}
+	])
 .value ('songList', [{
 	name: "A",
 	type: "Pop"
@@ -74,4 +80,40 @@ angular.module('MyApp')
 {
 	name: "CCC",
 	type: "Rap"
-}]);
+}])
+
+.factory ('filterSongs', function(songList, genreArray){
+
+	for (var i = 0; i < songList.length; i++){
+		for (var j = 0; j < genreArray.length; j++){
+			if (songList[i].type === genreArray[j].name){
+				genreArray[j].songsTitles.push(songList[i].name);
+			}
+		}
+	}
+	return genreArray;
+})
+
+.value ('explicitArray', ["Explicit", "Not Explicit"])
+
+.service('explicitAllowed', function(explicitArray){
+	var self = this;
+
+	self.ageAllowed = function (age){
+		if (age < 18){
+		//explicit not allowed
+		explicitArray[0].disabled = true;
+		}
+	};
+})
+
+.service('SelectedResults', function(Person){
+	var self = this;
+	var results = "";
+	self.songResults = function(selectedSongs){
+		for (var i = 0; i < selectedSongs.length; i++){
+			results += ("[Name: " + selectedSongs[i].name + ", Genre: " + selectedSongs[i].type + ", Explicit: " + selectedSongs[i].explicit + "] ");
+		}
+		return results;
+	};
+});

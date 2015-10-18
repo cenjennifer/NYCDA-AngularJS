@@ -1,39 +1,25 @@
 angular.module('MyApp', [])
 
 
-.controller('MyController', function(songList){
+.controller('MyController', function(songList, filterSongs, genreArray, Person, explicitArray, explicitAllowed, SelectedResults){
 	var self = this;
-	self.genres = [
-		{name: "Pop", songsTitles: []},
-		{name: "Rock", songsTitles: []},
-		{name: "Rap", songsTitles: []}
-	];
-
-	self.explicitAllowed = ["Explicit", "Not Explicit"];
-
-	console.log(self.genres[0].songsTitles);
 	self.songs = songList;
+	self.genres = genreArray;
+	self.explicitAllowed = explicitArray;
 
+	self.person = new Person(self.name, self.age);
 
-	for (var i = 0; i < self.songs.length; i++){
-		for (var j = 0; j < self.genres.length; j++){
-			if (self.songs[i].type === self.genres[j].name){
-				self.genres[j].songsTitles.push(self.songs[i].name);
-			}
+	self.underAge = function(age) {
+		//self.explicitAllowed[0].disabled = false;
+
+		if(age < 18){
+			//explicit not allowed
+			return true;
 		}
-		
-	}
+	};
 
-	//self.songList = self.selectedGenre.songsTitles;
-	//console.log(self.genres[1].songsTitles);
-	/*var self = this;
-	self.name = "Jennifer";
-
-	self.person = new Person(self.name);
-
-	self.selectedSongs = function () {
-
-	};*/
-
-	
+	self.selectedSongs = function (song, genre, explicit) {
+		self.person.addselectedSongs (song, genre, explicit);
+		console.log(SelectedResults.songResults(self.person.selectedSongs));
+	};
 });

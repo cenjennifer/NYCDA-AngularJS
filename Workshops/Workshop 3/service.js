@@ -46,39 +46,39 @@ angular.module('MyApp')
 		{name: "Rap", songsTitles: []}
 	])
 .value ('songList', [{
-	name: "A",
+	name: "The Hills - The Weekend",
 	type: "Pop"
 },
 	{
-	name: "AA",
+	name: "What Do You Mean - Justin Bieber",
 	type: "Pop"
 },
 {
-	name: "AAA",
+	name: "Sugar - Robin Schulz",
 	type: "Pop"
 },
 {
-	name: "B",
+	name: "Whole Lotta Love - Led Zeppelin",
 	type: "Rock"
 },
 {
-	name: "BB",
+	name: "Livin' On A Prayer - Bon Jovi",
 	type: "Rock"
 },
 {
-	name: "BBB",
+	name: "Don't Stop Believing - Journey",
 	type: "Rock"
 },
 {
-	name: "C",
+	name: "Not Afraid - Eminem",
 	type: "Rap"
 },
 {
-	name: "CC",
+	name: "Forever - Drake",
 	type: "Rap"
 },
 {
-	name: "CCC",
+	name: "Empire State of Mind - Jay Z",
 	type: "Rap"
 }])
 
@@ -94,9 +94,9 @@ angular.module('MyApp')
 	return genreArray;
 })
 
-.value ('explicitArray', ["Explicit", "Not Explicit"])
+.value ('explicitArray', ["Explicit", "Not Explicit"]);
 
-.service('explicitAllowed', function(explicitArray){
+/*.service('explicitAllowed', function(explicitArray){
 	var self = this;
 
 	self.ageAllowed = function (age){
@@ -105,15 +105,15 @@ angular.module('MyApp')
 		explicitArray[0].disabled = true;
 		}
 	};
-})
+});*/
 
-.service('SelectedResults', function(Person){
+/*<.service('SelectedResults', function(Person){
 	var self = this;
 	var results = "";
 	self.songResults = function(selectedSongs){
 		for (var i = 0; i < selectedSongs.length; i++){
-			results += ("[Name: " + selectedSongs[i].name + ", Genre: " + selectedSongs[i].type + ", Explicit: " + selectedSongs[i].explicit + "] ");
+			results += "{Name: " + selectedSongs[i].name + ", Genre: " + selectedSongs[i].type + ", Explicit: " + selectedSongs[i].explicit + "} ";
 		}
 		return results;
 	};
-});
+});*/

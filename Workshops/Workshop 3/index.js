@@ -1,7 +1,7 @@
 angular.module('MyApp', [])
 
 
-.controller('MyController', function(songList, filterSongs, genreArray, Person, explicitArray, explicitAllowed, SelectedResults){
+.controller('MyController', function(songList, filterSongs, genreArray, Person, explicitArray){
 	var self = this;
 	self.songs = songList;
 	self.genres = genreArray;
@@ -10,7 +10,6 @@ angular.module('MyApp', [])
 	self.person = new Person(self.name, self.age);
 
 	self.underAge = function(age) {
-		//self.explicitAllowed[0].disabled = false;
 
 		if(age < 18){
 			//explicit not allowed
@@ -18,8 +17,19 @@ angular.module('MyApp', [])
 		}
 	};
 
-	self.selectedSongs = function (song, genre, explicit) {
-		self.person.addselectedSongs (song, genre, explicit);
-		console.log(SelectedResults.songResults(self.person.selectedSongs));
+	self.selectedSongs = function () {
+		var selectedSongs = [];
+
+		//Best Practice: Create in Factory
+		for (var i = 0; i < self.songs.length; i++) {
+			if (self.songs[i].checked) {
+				var songToAdd = {
+					name: self.songs[i].name,
+					version: self.selectedExplicitLong
+				};
+				selectedSongs.push(songToAdd);
+			}
+		}
+		console.log(selectedSongs);
 	};
 });

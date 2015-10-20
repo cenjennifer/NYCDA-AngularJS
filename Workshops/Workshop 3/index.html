@@ -9,9 +9,9 @@
     </style>
   </head>
  <body ng-app="MyApp" ng-controller="MyController as ctrl">
- 	<!--<pre>
- 		{{ ctrl.songList | json}}
- 	</pre>-->
+ 	<pre>
+ 		{{ ctrl.songs | json}}
+ 	</pre>
 	<h1>About Me:</h1>
 		<div>Name: <br><input type="text" ng-model="ctrl.name"></div>
 		<div>Age: <br><input type="number" ng-model="ctrl.age"><br><br>
@@ -42,14 +42,19 @@
 		<div>
 		
 			<div ng-repeat="song in ctrl.songs | filter: ctrl.selectedGenre.name track by $index">
-				<input type="checkbox" ng-model="ctrl.songs[$index].checked" name="selectedSong" ng-value="song">
+					<input type="checkbox" ng-model="song.checked">
 					<span ng-bind="song.name"></span>
-	
 			</div>
+
+
+			<!--<h3>Checked</h3>
+			<div ng-repeat="song in ctrl.songs | filter: {checked: true}">
+					<span ng-bind="song.name"></span>
+			</div>-->
 
 		</div>
 		<br><br>
-		<button ng-click="ctrl.selectedSongs(ctrl.songs[$index].name, ctrl.selectedGenre.name, ctrl.selectedExplicitLong)">Submit</button>
+		<button ng-click="ctrl.selectedSongs()">Submit</button>
 		<br><br>
  </body>
  </html>   

@@ -1,0 +1,104 @@
+body{
+    width:320px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    font-family: sans-serif;
+    background-color:white;
+    /*hello*/
+}
+
+
+
+hr {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgb(192,192,192), rgba(128,128,128, 1), rgb(192,192,192));
+}
+.simonSpace{
+    font-family: sans-serif;
+    width:160px;
+    height: 300px;
+    float:left;
+    text-align: center;
+    color:crimson;
+}
+.playerSpace{
+    font-family: sans-serif;
+    width:160px;
+    height: 300px;
+    text-align: center;
+    float:left;
+    color:black;
+}
+.gameMessage{
+    color:red;
+    font-weight: bold;
+}
+.quartercircle {
+    width: 150px;
+    height: 150px;
+    margin:5px;
+}
+
+.quartercircle:active,
+.quartercircle:focus,
+.quartercircle.active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.green{
+    background: green;
+    border-radius: 0 0 150px 0;
+    float:right;
+}
+.greenActive{
+     background:#7fbf7f; 
+}
+.red{
+     background: red;
+     border-radius: 0 0 0 150px;
+     float:left;
+}
+.redActive{
+     background:#ff9999; 
+}
+.blue{
+     background: blue;
+     border-radius: 0 150px 0 0;
+     float:right;
+}
+.blueActive{
+     background:#7f7fff; 
+}
+.yellow{
+     background: yellow;
+     border-radius: 150px 0 0 0;
+     float:left;
+}
+.yellowActive{
+     background:#ffffb2; 
+}
+.circle{
+    width:320px;
+    height:340px;
+    
+}
+.buttonMessage{
+    font-weight: bold;
+    width:150px;
+    height:60px;
+}
+.startGame {
+    width:320px;
+    height:60px;
+    font-size:24px;
+    color:black;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    -moz-border-radius:6px; 
+    -webkit-border-radius:6px; 
+}

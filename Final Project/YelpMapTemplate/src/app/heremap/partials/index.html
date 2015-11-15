@@ -1,0 +1,33 @@
+<style>
+.yelpSide{
+	background-color:#bf0000;
+	float: left;
+	height: 600px;
+  	width: 35%;
+  	text-align: left;
+  	margin: 2px 5px;
+  	display: inline
+  }
+.mapSide{
+  float: left;
+  text-align: left;
+  margin: 2px 5px;
+  display: inline
+}
+</style>
+
+<h1>Generate Map & Locate Yelp Results</h1>
+<h3>Yelp Search:
+	<span ng-bind="thirdCtrl.yelpSearch"></span>
+</h3>
+
+<h3>From: 
+		<span ng-bind="thirdCtrl.fromAddress"></span>
+</h3>
+<h3>To:
+		<span ng-bind="thirdCtrl.toAddress"></span>
+</h3>
+	<div class="yelpSide" ui-view="yelpResults"></div>
+	<div class="mapSide" ui-view="generateMap"></div>
+
+	

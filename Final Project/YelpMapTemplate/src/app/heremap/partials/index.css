@@ -1,0 +1,17 @@
+.yelpSide{
+	background-color:#bf0000;
+	height: 100%;
+	float: left;
+  	width: 25%;
+  	text-align: left;
+  	margin: 2px 10px;
+  	display: inline
+  }
+
+.mapSide{
+  float: left;
+  text-align: left;
+  margin: 2px 10px;
+  display: inline
+
+}

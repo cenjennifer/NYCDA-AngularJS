@@ -1,0 +1,42 @@
+<h1>Add Destination</h1>
+
+<form name="secondCtrl.myForm" ng-submit="secondCtrl.onSubmit(secondCtrl.fromAddress, secondCtrl.toAddress, secondCtrl.yelpSearch, secondCtrl.generateYelpMapState)" novalidate>
+
+<span ng-show="secondCtrl.formComment">Please Complete the Entire Form</span>
+
+<div>From: 
+	<input type="text" ng-model="secondCtrl.fromAddress" name="fromAddress" required>
+</div>
+<br><br>
+<div>
+    <span ng-bind="secondCtrl.fromLat"></span>
+    <span ng-bind="secondCtrl.fromLng"></span>
+</div>
+
+<div>To: 
+	<input type="text" ng-model="secondCtrl.toAddress" name="toAddress" required>
+</div>
+
+<div>
+    <span ng-bind="secondCtrl.toLat"></span>
+    <span ng-bind="secondCtrl.toLng"></span>
+</div>
+
+<h1>Yelp Find</h1>
+<div>Search: 
+	<input type="text" ng-model="secondCtrl.yelpSearch" name ="yelpSearch">
+</div>
+
+<br><br>
+
+<div>
+	<input type="submit" value="Submit"> 
+</div>
+
+</form>
+
+<div>
+	<pre>
+			{{secondCtrl.myForm | json}}
+	</pre>
+</div>

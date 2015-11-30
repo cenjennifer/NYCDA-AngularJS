@@ -1,0 +1,37 @@
+<div id="top" class="mainPageHeader">     
+        <div class="text-vertical-center">
+            <span class="comment" ng-show="secondCtrl.formComment">You must complete all fields to proceed!</span><br><br>
+            <form class="form" name="secondCtrl.myForm" ng-submit="secondCtrl.onSubmit(secondCtrl.fromAddress, secondCtrl.toAddress, secondCtrl.yelpSearch, secondCtrl.generateYelpMapState)" novalidate>
+            
+                <br>
+                <h1>
+                    <input type="text" ng-model="secondCtrl.yelpSearch" name ="yelpSearch" class="yelpSearch" placeholder="Search">
+                </h1>
+                
+                <br>
+                
+                <h2>
+                    <input class="destination" type="text" ng-model="secondCtrl.fromAddress" name="fromAddress" placeholder="Location A" required>
+
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    
+                    <input class="destination"  type="text" ng-model="secondCtrl.toAddress" name="toAddress" placeholder="Location B" required>
+                </h2>
+                <br>
+                <div>
+                    <input ng-hide="secondCtrl.submitButton" class="submitButton" type="submit" value="Submit"> 
+                </div>
+                
+                <div ng-show="secondCtrl.loading" class="three-quarters-loader">Loading…
+                </div>
+                <br><br>
+
+            </form><br>
+        </div>
+</div>
+
+<!-- <div>
+	<pre>
+			{{secondCtrl.myForm | json}}
+	</pre>
+</div> -->

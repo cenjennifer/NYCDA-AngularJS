@@ -1,0 +1,21 @@
+<div style="padding:15px; float:left;" ng-show="thirdCtrl.yelpSearch">
+	<span style="font-weight: bold; font-size:28px; color:#bf0000;">Nearby </span>
+	<span style="font-weight: bold; font-size:28px; color:#bf0000;" ng-bind="thirdCtrl.yelpSearch"></span> from 
+	<span style="color:#bf0000;font-size:20px" ng-bind="thirdCtrl.fromAddress"></span> to 
+	<span style="font-size:20px; color:#bf0000;" ng-bind="thirdCtrl.toAddress"></span>
+</div>
+
+<div style="float:right; padding: 9px;">
+	<a ui-sref="{{thirdCtrl.collectDataState}}">
+		<i ng-click="thirdCtrl.refresh()" class="material-icons md-48">edit_location</i>
+	</a>
+</div>
+<div style="width: 100%; text-align: center; valign: middle; height: 500px;" ng-hide="thirdCtrl.YelpResults">
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<span class="three-quarters-loader">Loading…</span>
+</div>
+
+<div class="yelpSide" ui-view="yelpResults"></div>
+<div class="mapSide" ui-view="generateMap"></div>
+
+	
